@@ -34,7 +34,7 @@ resources:
             - task_key: dlt_medium_pipeline
           notebook_task:
             base_parameters:
-              dbname: "medium_post_report_${bundle.environment}"
+              dbname: "bchin_medium_post_report_${bundle.environment}"
             notebook_path: ./fe_medium_report.py
           new_cluster:
             spark_version: 13.1.x-scala2.12
@@ -44,6 +44,9 @@ resources:
 environments:
   development:
     default: true
+    workspace:
+      host: https://e2-demo-field-eng.cloud.databricks.com/
+      root_path: /Users/${workspace.current_user.userName}/.bundle/${bundle.name}/${bundle.target}
     resources:
       pipelines:
         medium_metrics_pipeline:
@@ -52,6 +55,7 @@ environments:
   qa: # This environment is when deploying test runs from a pull request on GitHub.
     workspace:
       host: https://e2-dogfood.staging.cloud.databricks.com/
+      root_path: /Users/${workspace.current_user.userName}/.bundle/${bundle.name}/${bundle.target}
     resources:
       pipelines:
         medium_metrics_pipeline:
@@ -63,6 +67,7 @@ environments:
   production:
     workspace:
       host: https://e2-dogfood.staging.cloud.databricks.com/
+      root_path: /Users/${workspace.current_user.userName}/.bundle/${bundle.name}/${bundle.target}
     resources:
       pipelines:
         medium_metrics_pipeline:
@@ -82,4 +87,4 @@ environments:
                 new_cluster:
                   spark_version: 13.1.x-scala2.12
                   num_workers: 4
-                  node_type_id: i3.xlarge  
+                  node_type_id: i3.xlarge
