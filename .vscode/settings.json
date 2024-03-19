@@ -2,5 +2,28 @@
     "python.envFile": "${workspaceFolder}/.databricks/.databricks.env",
     "databricks.python.envFile": "${workspaceFolder}/.env",
     "jupyter.interactiveWindow.cellMarker.codeRegex": "^# COMMAND ----------|^# Databricks notebook source|^(#\\s*%%|#\\s*\\<codecell\\>|#\\s*In\\[\\d*?\\]|#\\s*In\\[ \\])",
-    "jupyter.interactiveWindow.cellMarker.default": "# COMMAND ----------"
+    "jupyter.interactiveWindow.cellMarker.default": "# COMMAND ----------",
+    "sqltools.connections": [
+        {
+            "connectionMethod": "Hostname and Token",
+            "catalog": "benjamin_chin_catalog",
+            "previewLimit": 50,
+            "driver": "Databricks",
+            "name": "benjamin_chin_catalog",
+            "host": "e2-demo-field-eng.cloud.databricks.com",
+            "path": "/sql/1.0/warehouses/475b94ddc7cd5211"
+        },
+        {
+            "connectionMethod": "Hostname and Token",
+            "catalog": "benjamin_chin_managed_catalog",
+            "previewLimit": 50,
+            "driver": "Databricks",
+            "name": "benjamin_chin_managed_catalog",
+            "host": "e2-demo-field-eng.cloud.databricks.com",
+            "path": "/sql/1.0/warehouses/475b94ddc7cd5211"
+        }
+    ],
+    "files.watcherExclude": {
+        "**/target": true
+    }
 }
